@@ -1,8 +1,3 @@
-<HTML>
-    <Head>
-        <title>This is a demo</title>
-    </Head>
-    <body>
-        The Gender of <%=query['temp']%> is <%=query['Gender']%> 
-    </body>
-</HTML>
+<%- include('./partials/header.ejs')%>
+    The Gender of <%=query['temp']%> is <%=query['Gender']%> 
+<%- include('./partials/footer.ejs') %>

@@ -1,6 +1,20 @@
+<!--  THis will show the outcome -->
 <%- include('./partials/header.ejs')%>
-    Background Changed!!!!
+    Theme Changed!!!! 
+    The Entered Value Is
+    <div>
+          "<%=val%>" 
+    </div>
     <script>
-        changeBackImage("<%=url%>")
+       var temp = "<%=theme%>"
+       if(temp=="Dark")
+        {
+            changeTheme("/(198).jpg")
+        }
+        else
+        {
+            changeTheme("/(290).jpg")
+        }
     </script>
+    
 <%- include('./partials/footer.ejs') %>

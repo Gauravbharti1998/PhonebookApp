@@ -1,6 +1,5 @@
 //THis will recieve the data from home.ejs and will process and will render it to home2.ejs
 let express = require('express')
-let mongoose = require('./connection')   //We are making the db connection file totally separate and just requiring the mongoose
 let app = express()
 app.set('view engine', 'ejs')
 app.set('views', './views/ejs')

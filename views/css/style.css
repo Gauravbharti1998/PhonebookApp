@@ -3,9 +3,16 @@ body{
     background-color: black;
     color: white;
     font-family: monospace;
+    text-align: center;
+    margin-top: 5%;
 }
 div{
     font-family: verdana;
     font-size: 30px;
     color:white;
+}
+#form{
+    border: 2px solid grey;
+    padding: 1%;
+    display: inline-block;
 }

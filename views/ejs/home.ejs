@@ -1,11 +1,18 @@
 <!-- this will take data from the user and will send it to the backend that is index.js which will process and further send it to home2.ejs -->
 
 <%- include('./partials/header.ejs') %>
-        <form action= "show" method="POST">
-            <input type ="text" name="val" placeholder="ENTER NAME"> 
-            <button type= "submit">SUBMIT</button> 
-            <p> Choose Theme </p>
-            <input type="radio" name="theme" id="myradio" value="Dark">Dark
-            <input type="radio" name="theme" id="myradio" value="Light">Light
-        </form>
+<body>
+    <!--Insert the Name number and email and DOB /insert-->
+    <!--Find by the Name, number and email /find-->
+    <!--Update the Name number and email and DOB /update-->
+    <!--Delete the Name number and email and DOB /delete-->
+    <!--Show All /all -->
+    <!--
+            INSERT
+            FIND
+            UPDATE          =>    insert FORM [--] [--] [--] [--]
+                                    BACK BUTTON  [ <- ]
+            DELETE
+            ALL
+    -->
 <%- include('./partials/footer.ejs') %>

@@ -1,6 +1,7 @@
 require ('../connection')
 const contactDetailsModel = require('../schemas/contactSchema')
-class ContactDetailsHelper  //Validation of data before doing CRUD
+class ContactDetailsHelper  //this is wrapper for the  extra layer of authentication
+//Validation of data before doing CRUD
 {
     static async findByName(name)
     {
@@ -54,8 +55,8 @@ class ContactDetailsHelper  //Validation of data before doing CRUD
             })
         }
 
-        
-        if(await this.findByNums(data['ContactNumbers']).length == 0)
+        //console.log((await this.findByNums(data['ContactNumbers'])).length)
+        if((await this.findByNums(data['ContactNumbers'])).length == 0)
         { //Checking whether the number is unique or not
             let contactDetail = new contactDetailsModel(data)
             await contactDetail.save()
@@ -64,5 +65,6 @@ class ContactDetailsHelper  //Validation of data before doing CRUD
         else
             throw 'numbers should be unique'
     }
-
 }
+
+module.exports = ContactDetailsHelper

@@ -10,9 +10,28 @@
     <!--
             INSERT
             FIND
-            UPDATE          =>    insert FORM [--] [--] [--] [--]
-                                    BACK BUTTON  [ <- ]
+            UPDATE          =>    insert FORM [--] [--] [--] [--]            O O
+                                    BACK BUTTON  [ <- ]                       ~
             DELETE
             ALL
     -->
+    <div id = 'main'>
+        
+        Click on the Operation you wish to do:-
+        <button id="insert" onclick="insertForm()">Insert</button>
+        <button id="find" onclick="findForm()"> Find </button>
+        <button id="view_all" onclick="showAll()">Show All</button>
+        <button id="update" onclick="updateForm()">Update</button>    
+        <button id="delete" onclick="deleteForm()">Delete</button>
+    </div><br>
+    <div id='contacts'>
+        <% contactsData.forEach((contactData) => { %>  <!--for printing array-->
+            <p>Name: <%=contactData.Name%></p>
+            <% if(typeof contactData.Dob == 'object'){%>
+                <p>Dob: <%=`${contactData.Dob.getDate()}/${contactData.Dob.getMonth()}/${contactData.Dob.getFullYear()}`%></p>    
+            <%}%>
+            
+            
+        <%})%>
+    </div>
 <%- include('./partials/footer.ejs') %>

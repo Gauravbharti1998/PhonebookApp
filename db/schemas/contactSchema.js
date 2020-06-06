@@ -7,6 +7,6 @@ let contactSchema = new mongoose.Schema({
     Dob: Date,
 })
 let ContactDetailsModel = mongoose.model('ContactDetail', contactSchema)
-
+//the name is ContactDetail but the mongo will convert it to contactdetails as collection name.
 //console.log(new ContactDetailsModel())
 module.exports = ContactDetailsModel

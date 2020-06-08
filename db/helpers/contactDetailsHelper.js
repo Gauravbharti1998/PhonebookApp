@@ -10,6 +10,8 @@ class ContactDetailsHelper  //this is wrapper for the  extra layer of authentica
     }
     static async findByNums(nums) // Array<string> [A,B,C]
     {
+        if(typeof nums == 'string')
+            nums = [nums]
         if(Array.isArray(nums)){
             const result = await contactDetailsModel.find({ContactNumbers:{$in: nums}})
             return result
@@ -19,6 +21,8 @@ class ContactDetailsHelper  //this is wrapper for the  extra layer of authentica
     }
     static async findByEmails(emails)
     {
+        if(typeof emails == 'string')
+            emails = [emails]
         if(Array.isArray(emails)){
             const result = await contactDetailsModel.find({ContactNumbers:{$in: emails}})
             return result

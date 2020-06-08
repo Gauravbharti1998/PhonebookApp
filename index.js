@@ -21,6 +21,7 @@ app.get('/', async (req, res) => {
 })
 app.post('/find', async (req, res) => {
     const body = req.body
+    console.log(body)
     if(body.type && body.value){
         try{
             let output
@@ -37,7 +38,7 @@ app.post('/find', async (req, res) => {
             res.render('home',{contactsData:output})
         }
         catch(err){
-            res.send(500).send(err)
+            res.status(500).send(err)
         }
     }
     else

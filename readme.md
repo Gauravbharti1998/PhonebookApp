@@ -4,7 +4,7 @@ Following technologies are used to build this project
 -   CSS
 -   MongoDB
 -   DOM (Document Object Model)
--   bootstrap (maybe)
+-   Bootstrap 
 
 In NodeJS we are using these libraries
 -   ejs: To embed javascript in html pages on server side

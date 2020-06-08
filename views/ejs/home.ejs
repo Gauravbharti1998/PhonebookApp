@@ -1,7 +1,6 @@
 <!-- this will take data from the user and will send it to the backend that is index.js which will process and further send it to home2.ejs -->
 
 <%- include('./partials/header.ejs') %>
-<body>
     <!--Insert the Name number and email and DOB /insert-->
     <!--Find by the Name, number and email /find-->
     <!--Update the Name number and email and DOB /update-->
@@ -15,23 +14,55 @@
             DELETE
             ALL
     -->
-    <div id = 'main'>
+    <div  id = 'main'>
         
-        Click on the Operation you wish to do:-
+        <!-- Click on the Operation you wish to do:-
         <button id="insert" onclick="insertForm()">Insert</button>
         <button id="find" onclick="findForm()"> Find </button>
         <button id="view_all" onclick="showAll()">Show All</button>
         <button id="update" onclick="updateForm()">Update</button>    
-        <button id="delete" onclick="deleteForm()">Delete</button>
+        <button id="delete" onclick="deleteForm()">Delete</button> -->
     </div><br>
-    <div id='contacts'>
-        <% contactsData.forEach((contactData) => { %>  <!--for printing array-->
-            <p>Name: <%=contactData.Name%></p>
-            <% if(typeof contactData.Dob == 'object'){%>
-                <p>Dob: <%=`${contactData.Dob.getDate()}/${contactData.Dob.getMonth()}/${contactData.Dob.getFullYear()}`%></p>    
-            <%}%>
-            
-            
+    <div  id='contacts'>
+        <% contactsData.forEach((contactData) => { %>  
+            <div class ='row'>
+                <div class='col'>
+                    <div class="card container">
+                        <div class="card-body text-secondary">
+                            <div class='row card-title text-dark'>
+                                <h1 class ='col-10 d-flex p-2'><%=contactData.Name%></h1>
+                                <form action='update' method='POST' class='col-1'><button type='submit' class='btn btn-info'><i class="fa fa-pencil-square-o"></i></button></form>
+                                <form action='delete' method="POST" class='col-1'><button type='submit' class= 'btn btn-danger'><i class="fa fa-trash-o"></i></button></form>
+                            </div>
+                            <div class ='row text-secondary'>
+                                <p class="col card-text d-flex p-2">Ph:
+                                    <% for(let i=0;i<contactData.ContactNumbers.length;++i){%>
+                                        <%=contactData.ContactNumbers[i]%>
+                                        <%if(i < contactData.ContactNumbers.length-1){%>
+                                            ,
+                                        <%}%>
+                                    <%}%>
+                                </p>
+                            </div>
+                            <div class ='row text-secondary'>
+                                    <p class="col card-text d-flex p-2">Email:
+                                        <% for(let i=0;i<contactData.Emails.length;++i){%>
+                                            <%=contactData.Emails[i]%>
+                                            <%if(i < contactData.Emails.length-1){%>
+                                                ,
+                                            <%}%>
+                                        <%}%>
+                                    </p>
+                            </div>
+                            <%if(contactData.Dob){%>
+                                <div class ='row text-secondary'>
+                                        <p class="col card-text d-flex p-2">D.O.B- <%=`${contactData.Dob.getDate()}/${contactData.Dob.getMonth()}/${contactData.Dob.getFullYear()}`%></p>
+                                </div>
+                            <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <%})%>
     </div>
 <%- include('./partials/footer.ejs') %>

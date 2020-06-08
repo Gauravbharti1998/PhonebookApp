@@ -3,9 +3,9 @@ const contactDetailsModel = require('../schemas/contactSchema')
 class ContactDetailsHelper  //this is wrapper for the  extra layer of authentication
 //Validation of data before doing CRUD
 {
-    static async findByName(name)
+    static async findByNamePrefix(prefix)
     {
-        const result = await contactDetailsModel.find({Name:name})
+        const result = await contactDetailsModel.find({Name:{$regex: RegExp(`^${prefix}`)}})
         return result
     }
     static async findByNums(nums) // Array<string> [A,B,C]

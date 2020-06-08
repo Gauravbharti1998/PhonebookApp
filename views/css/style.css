@@ -1,7 +1,7 @@
 body{
     background-image: url("/(370).jpg");
-    background-color: black;
-    color: white;
+    background-color: rgb(183, 194, 201);
+    color: rgb(29, 24, 24);
     font-family: monospace;
     text-align: center;
 }

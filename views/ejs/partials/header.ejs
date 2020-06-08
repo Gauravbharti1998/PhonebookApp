@@ -1,10 +1,30 @@
 <html>
     <head>
         <title>PHONEBOOK APP</title>
-        <h1 font-family:verdana font-size:50px>Contacts </h1>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/style.css">
         <script src='/js/dom.js'></script>
-
-        
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
     <body>
+        <nav class="navbar justify-content-between sticky-top navbar-dark navbar-expand-sm bg-dark">
+            <div class = 'navbar-header'>
+                <a class="navbar-brand btn" href="/"> <i class="fa fa-address-book-o"></i> CONTACTS</a>
+            </div>
+            <ul class="navbar-nav ">
+                <li class ='nav-item btn'>
+                    <button class ='nav-link btn btn-outline-secondary' type='button'><i class="fa fa-user-plus"></i> ADD CONTACT</button>
+                </li>
+                <li class ='nav-item btn'>
+                    <form class="form-inline" action="find" method ='POST'>
+                        <input class="form-control mr-sm-1" type="text" name='value' placeholder="Search" required>
+                        <select class='form-control' name="type" id="">
+                            <option value="name">By Name</option>
+                            <option value="email">By Number</option>
+                            <option value="number">By Email</option>
+                        </select>
+                        <button class="nav-link btn" type="submit"><i class="fa fa-search"> </i></button>
+                    </form>
+                </li>                    
+            </ul>
+        </nav>

@@ -11,12 +11,37 @@ app.use(express.urlencoded({extended: true}))
 
 app.get('/', async (req, res) => {
     try{
+        //console.log("HIIIIIII")
         const contacts = await ContactDetailsHelper.findAll()
         res.status(200).render('home', {contactsData: contacts})
     }
     catch(err){
         res.status(500).send(err)
     }
+})
+app.post('/find', async (req, res) => {
+    const body = req.body
+    if(body.type && body.value){
+        try{
+            let output
+            switch(body.type)
+            {
+                case "name": output= await ContactDetailsHelper.findByNamePrefix(body.value)
+                    break;
+                case "number":output= await ContactDetailsHelper.findByNums(body.value)
+                    break;
+                case "email":output= await ContactDetailsHelper.findByEmails(body.value)
+                    break;
+            }
+           // console.log(output)
+            res.render('home',{contactsData:output})
+        }
+        catch(err){
+            res.send(500).send(err)
+        }
+    }
+    else
+        res.status(405).send("Invalid Entry")
 })
 app.post('/insert', async(req,res)=>{
     try{
@@ -28,4 +53,4 @@ app.post('/insert', async(req,res)=>{
         res.status(600).send(err)
     }
     })
-app.listen("3000", console.log("Running on port 3000"))
+app.listen("3000", console.log("Running on port number 3000"))
